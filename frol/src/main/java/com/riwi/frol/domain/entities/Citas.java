@@ -28,5 +28,4 @@ public class Citas {
     private Long id_cliente;
     @Enumerated(EnumType.STRING)
     private StateCitas estado;
-
 }
