@@ -5,4 +5,5 @@ import com.riwi.frol.api.dto.response.ClienteResponse;
 
 public interface IClienteService extends CrudService<ClienteRequest,ClienteResponse,String>{
     
+    public ClienteResponse getById(String id);
 }
