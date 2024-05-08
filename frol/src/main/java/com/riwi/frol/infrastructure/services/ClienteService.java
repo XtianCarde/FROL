@@ -29,13 +29,16 @@ public class ClienteService implements IClienteService{
 
     @Override
     public ClienteResponse create(ClienteRequest request) {
-        return null;
+        return
     }
 
     @Override
     public ClienteResponse update(String id, ClienteRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        Cliente objCliente = this.find(id);
+
+        Cliente objClienteUpdate = this.clienteRequest(request, objCliente);
+
+        return this.entityToCliente(this.objClienteRepository.save(objClienteUpdate));
     }
 
     @Override
@@ -65,8 +68,12 @@ public class ClienteService implements IClienteService{
         return this.objClienteRepository.findById(id).orElseThrow();
     }
 
-    private Cliente clienteRequest (ClienteRequest cliente, Cliente objCliente){
-
+    private Cliente clienteRequest (ClienteRequest request, Cliente cliente){
+        cliente.setName(request.getName());
+        cliente.setPassword(request.getPassworl());
+        cliente.setPhone(request.getPhone());
+        cliente.setAge(request.getAge());
+        return cliente;
     }
 
 }
