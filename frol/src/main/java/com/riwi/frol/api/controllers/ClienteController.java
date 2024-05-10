@@ -39,7 +39,7 @@ public class ClienteController {
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "10") int size) {
             
-            return ResponseEntity.ok(this.objClienteService.getAll(page, size));
+            return ResponseEntity.ok(this.objClienteService.getAll(page -1, size));
     }
 
     @GetMapping("/{id}")
@@ -49,7 +49,9 @@ public class ClienteController {
 
     @Operation(summary = "Crea una vacante y la asocia una compañia", description = "Crea un cliente y la asocia una compañia")
     @PostMapping
-    public ResponseEntity<ClienteResponse> insert (@Validated @RequestBody ClienteRequest request){
+    public ResponseEntity<ClienteResponse> insert (
+        @Validated 
+        @RequestBody ClienteRequest request){
         return ResponseEntity.ok(this.objClienteService.create(request));
     }
 
