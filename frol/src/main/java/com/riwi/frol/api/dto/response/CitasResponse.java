@@ -6,7 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Data
@@ -15,10 +17,9 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class CitasResponse {
     private Long id;
-    private LocalDate feha;
-    private LocalTime hora;
-    private double valor;
-    private Long id_empresa;
-    private Long id_cliente;
+    private LocalDateTime feha;
+    private BigDecimal valor;
+    private CompanyToCitaResponse id_empresa;
+    private ClienteResponse id_cliente;
     private StateCitas estado;
 }

@@ -12,3 +12,4 @@ public class IdNotFoundException extends RuntimeException{
         super(String.format(ERROR_MESSAGE, nameEntity));
     }
 }
+
