@@ -73,8 +73,9 @@ public class ClienteService implements IClienteService{
     private Cliente clienteRequest (ClienteRequest request, Cliente cliente){
         cliente.setName(request.getName());
         cliente.setPassword(request.getPassworl());
-        cliente.setPhone(request.getPhone());
-        cliente.setAge(request.getAge());
+        cliente.setEmail(request.getEmail());
+        // cliente.setPhone(request.getPhone());
+        // cliente.setAge(request.getAge());
         return cliente;
     }
 

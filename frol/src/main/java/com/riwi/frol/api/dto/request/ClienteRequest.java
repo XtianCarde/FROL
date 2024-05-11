@@ -1,5 +1,6 @@
 package com.riwi.frol.api.dto.request;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -22,11 +23,11 @@ public class ClienteRequest {
     @Size(min = 0,max = 16, message = "La contraseña supera la cantidad de caracteres permitidos")
     @NotBlank(message = "La contraseña del cliente debe ser requerido")
     private String passworl;
-    @Positive
-    @NotBlank(message = "La edad del cliente debe ser requerido")
-    private int age;
-    @Min(0)
-    @Max(15)
-    @NotBlank(message = "El numero del cliente debe ser requerido")
-    private int phone;
+    @Email
+    private String email;
+    // @Positive
+    // @NotBlank(message = "La edad del cliente debe ser requerido")
+    // private int age;
+    // @NotBlank(message = "El numero del cliente debe ser requerido")
+    // private String phone;
 }
