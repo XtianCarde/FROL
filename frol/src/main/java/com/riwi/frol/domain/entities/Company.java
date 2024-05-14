@@ -2,16 +2,12 @@ package com.riwi.frol.domain.entities;
 
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity(name = "company")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Company {
@@ -27,5 +23,13 @@ public class Company {
     private String urlImg;
     private String email;
     private String password;
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude // @121312312
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            mappedBy = "company",
+            cascade = CascadeType.ALL,
+            orphanRemoval = false
+    )
     private List<Citas> citas; // Es una lista de citas no de String
 }

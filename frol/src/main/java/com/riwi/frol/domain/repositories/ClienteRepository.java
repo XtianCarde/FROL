@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.riwi.frol.domain.entities.Cliente;
 
 @Repository
-public interface ClienteRepository  extends JpaRepository<Cliente,String>{    
+public interface ClienteRepository  extends JpaRepository<Cliente,Long>{
 }

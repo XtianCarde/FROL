@@ -20,8 +20,8 @@ public class ClienteService implements IClienteService{
     private final ClienteRepository objClienteRepository;
 
     @Override
-    public void delete(String id) {
-        Cliente objCliente = this.find(id);
+    public void delete(Long id) {
+        Cliente objCliente = this.find(String.valueOf(id));
 
         this.objClienteRepository.delete(objCliente);
 
@@ -33,8 +33,8 @@ public class ClienteService implements IClienteService{
     }
 
     @Override
-    public ClienteResponse update(String id, ClienteRequest request) {
-        Cliente objCliente = this.find(id);
+    public ClienteResponse update(Long id, ClienteRequest request) {
+        Cliente objCliente = this.find(String.valueOf(id));
 
         Cliente objClienteUpdate = this.clienteRequest(request, objCliente);
 
@@ -52,8 +52,8 @@ public class ClienteService implements IClienteService{
 
     
     @Override
-    public ClienteResponse getById(String id) {
-        return this.entityToCliente(this.find(id));
+    public ClienteResponse getById(Long id) {
+        return this.entityToCliente(this.find(String.valueOf(id)));
     }
     
     private ClienteResponse entityToCliente(Cliente entity){

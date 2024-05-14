@@ -8,9 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+
 
 
 @Data
@@ -26,15 +25,16 @@ public class Citas {
     private LocalDateTime feha;
     @Column(nullable = false)
     private BigDecimal valor;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_empresa" , referencedColumnName = "id")
-    private Long id_empresa;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cliente" , referencedColumnName = "id")
-    private Long id_cliente;
-
     @Enumerated(EnumType.STRING)
     private StateCitas estado;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_empresa" , referencedColumnName = "id")
+    private Company id_empresa;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_cliente" , referencedColumnName = "id")
+    private Cliente id_cliente;
+
+
 }
