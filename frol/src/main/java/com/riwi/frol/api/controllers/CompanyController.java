@@ -1,3 +1,4 @@
+/* 
 // package com.riwi.frol.api.controllers;
 
 
@@ -28,10 +29,10 @@
 //         return ResponseEntity.ok(this.objICompanyService.getAll(page - 1, size));
 //     }
 
-//     @PostMapping
-//     public ResponseEntity<CompanyResponse> insert(@RequestBody CompanyRequest CR){ // falta el validador
-//         return ResponseEntity.ok(this.objICompanyService.create(CR));
-//     }
+    @PostMapping
+    public ResponseEntity<CompanyResponse> insert(@RequestBody CompanyRequest CR){ // falta el validador
+        return ResponseEntity.ok(objICompanyService.create(CR));
+    }
 
 //     @DeleteMapping("/{id}")
 //     public ResponseEntity<Void> delete(@PathVariable Long id){
@@ -39,8 +40,9 @@
 //         return ResponseEntity.noContent().build();
 //     }
 
-//     @PutMapping("/{id}")
-//     public ResponseEntity<CompanyResponse> update(@PathVariable Long id, @RequestBody CompanyRequest CR){
-//         return ResponseEntity.ok(this.objICompanyService.update(id, CR));
-//     }
-// }
+    @PutMapping("/{id}")
+    public ResponseEntity<CompanyResponse> update(@PathVariable Long id, @RequestBody CompanyRequest CR){
+        return ResponseEntity.ok(this.objICompanyService.update(id, CR));
+    }
+}
+*/

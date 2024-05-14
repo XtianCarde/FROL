@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CitasToCompanyResponse {
+public class CitasBasicResponse {
     private Long id;
     private String nombre;
     private String servicio;

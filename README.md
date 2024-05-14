@@ -1,5 +1,4 @@
-FROL
-Este proyecto consiste en brindar una herramienta organizacional donde las partes por medio de nuestro
+FROL Este proyecto consiste en brindar una herramienta organizacional donde las partes por medio de nuestro
 sitio web acuerden la ejecución de la acción, por parte del prestador de servicios podrá brindar
 información detallada, como lo es: Nombre, ubicación, redes sociales, servicios, paquetes, promociones,
 disponibilidad, precios entre otros, y donde el tomador, en este caso el cliente, tendrá acceso a dicha

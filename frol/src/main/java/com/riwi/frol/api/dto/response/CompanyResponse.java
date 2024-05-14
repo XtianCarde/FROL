@@ -18,6 +18,5 @@ public class CompanyResponse {
     private String servicio;
     private String descripcion;
     private String nit;
-
     private List<String> citas; //si
 }

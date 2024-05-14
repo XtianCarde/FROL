@@ -1,15 +1,13 @@
 package com.riwi.frol.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Entity
+import java.util.List;
+
+@Entity(name = "cliente")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cliente {
@@ -20,5 +18,14 @@ public class Cliente {
     private String password;
     private String email;
     private int age;
-    private String phone;
+    private int phone;
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude // @121312312
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            mappedBy = "cliente",
+            cascade = CascadeType.ALL,
+            orphanRemoval = false
+    )
+    private List<Citas> citas;
 }
