@@ -1,6 +1,8 @@
 package com.riwi.frol.api.dto.errors;
 
 import java.util.List;
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,5 +15,5 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ErrorsResponse extends BaseErrorResponse {
-    private List<String> errors;
+    private List<Map<String,String>> errors;
 }
