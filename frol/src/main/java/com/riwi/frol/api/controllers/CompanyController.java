@@ -23,7 +23,7 @@ public class CompanyController {
 
     @GetMapping
     public ResponseEntity<Page<CompanyResponse>> get(@RequestParam(defaultValue = "1") int page,
-            @RequestParam(defaultValue = "5") int size) {
+            @RequestParam(defaultValue = "10") int size) {
         return ResponseEntity.ok(this.objICompanyService.getAll(page - 1, size));
     }
 
