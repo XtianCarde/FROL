@@ -23,12 +23,12 @@ import lombok.AllArgsConstructor;
 public class CompanyController {
     private final ICompanyService objICompanyService;
 
+    
     @GetMapping
     public ResponseEntity<Page<CompanyResponse>> get(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size){
         return ResponseEntity.ok(this.objICompanyService.getAll(page - 1, size));
     }
-
-    @PostMapping
+ @PostMapping
     public ResponseEntity<CompanyResponse> insert(@RequestBody CompanyRequest CR){ // falta el validador
         return ResponseEntity.ok(this.objICompanyService.create(CR));
     }

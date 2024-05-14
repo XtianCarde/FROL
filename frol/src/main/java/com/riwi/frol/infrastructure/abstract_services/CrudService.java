@@ -2,7 +2,7 @@ package com.riwi.frol.infrastructure.abstract_services;
 
 import org.springframework.data.domain.Page;
 
-public interface CrudService<RS, RQ, ID> {
+public interface CrudService<RQ, RS, ID> {
     
     void delete(ID id);
     

@@ -1,4 +1,4 @@
-package com.riwi.frol.api.dto.response;
+/* package com.riwi.frol.api.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,3 +17,4 @@ public class CompanyToCitaResponse {
     private String descripcion;
     private String nit;
 }
+ */
