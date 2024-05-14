@@ -11,7 +11,7 @@ import com.riwi.frol.Util.exceptions.IdNotFoundException;
 import com.riwi.frol.api.dto.request.CompanyRequest;
 import com.riwi.frol.api.dto.response.CitasBasicResponse;
 import com.riwi.frol.api.dto.response.CompanyResponse;
-/* import com.riwi.frol.domain.entities.Cita; */
+import com.riwi.frol.domain.entities.Cita;
 import com.riwi.frol.domain.entities.Company;
 import com.riwi.frol.domain.repositories.CompanyRepository;
 import com.riwi.frol.infrastructure.abstract_services.ICompanyService;
@@ -61,22 +61,22 @@ public class CompanyService implements ICompanyService {
     private CompanyResponse entityToResponse(Company company){
         CompanyResponse companyResponse = new CompanyResponse();
         BeanUtils.copyProperties(company, companyResponse);
-        /* companyResponse.setCitas(company.getCitas()
+        companyResponse.setCitas(company.getCitas()
         .stream()
         .map(this::citaToResponse)
-        .collect(Collectors.toList())); */
+        .collect(Collectors.toList()));
         return companyResponse;
     }
 
     private Company requestToCompany(CompanyRequest CR, Company company){
         BeanUtils.copyProperties(CR, company);
-        /* company.setCitas(new ArrayList<>()); */
+        company.setCitas(new ArrayList<>());
         return company;
     }
     
-    /* private CitasBasicResponse citaToResponse(Cita entity){
+    private CitasBasicResponse citaToResponse(Cita entity){
         CitasBasicResponse response = new CitasBasicResponse();
         BeanUtils.copyProperties(entity, response);
         return response;
-    } */
+    }
 }

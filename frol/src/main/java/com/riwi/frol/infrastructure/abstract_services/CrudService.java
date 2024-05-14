@@ -2,14 +2,14 @@ package com.riwi.frol.infrastructure.abstract_services;
 
 import org.springframework.data.domain.Page;
 
+
 public interface CrudService<RQ, RS, ID> {
-    
-    void delete(ID id);
-    
-    RS create(RQ rq);
 
-    RS update(ID id, RQ rq);
+    public void delete(ID id);
 
-    Page<RS> getAll(int page, int size);
+    public RS create(RQ request);
 
+    public RS update(ID id, RQ request);
+
+    public Page<RS> getAll(int page, int size);
 }
