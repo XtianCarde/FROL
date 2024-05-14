@@ -26,7 +26,7 @@ public class CitasRequest {
 
     @FutureOrPresent(message = "La fecha y hora debe ser futura")
     @NotNull(message = "La fecha y hora de la cita es requeridas")
-    private LocalDateTime feha;
+    private LocalDateTime fecha;
     @NotNull(message = "El precio es requerido")
     @DecimalMin(
             value = "0.01",
