@@ -27,9 +27,9 @@ public class Company {
     @EqualsAndHashCode.Exclude // @121312312
     @OneToMany(
             fetch = FetchType.EAGER,
-            mappedBy = "company",
+            mappedBy = "id_empresa",
             cascade = CascadeType.ALL,
             orphanRemoval = false
     )
-    private List<Citas> citas; // Es una lista de citas no de String
+    private List<Cita> citas; // Es una lista de citas no de String
 }

@@ -23,9 +23,9 @@ public class Cliente {
     @EqualsAndHashCode.Exclude // @121312312
     @OneToMany(
             fetch = FetchType.EAGER,
-            mappedBy = "cliente",
+            mappedBy = "id_cliente",
             cascade = CascadeType.ALL,
             orphanRemoval = false
     )
-    private List<Citas> citas;
+    private List<Cita> citas;
 }
