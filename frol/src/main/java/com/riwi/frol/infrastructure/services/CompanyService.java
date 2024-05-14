@@ -1,4 +1,4 @@
-/* package com.riwi.frol.infrastructure.services;
+package com.riwi.frol.infrastructure.services;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -6,12 +6,12 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.riwi.frol.Util.exceptions.IdNotFoundException;
 import com.riwi.frol.api.dto.request.CompanyRequest;
-import com.riwi.frol.api.dto.response.CitasToCompanyResponse;
+import com.riwi.frol.api.dto.response.CitasBasicResponse;
 import com.riwi.frol.api.dto.response.CompanyResponse;
+/* import com.riwi.frol.domain.entities.Cita; */
 import com.riwi.frol.domain.entities.Company;
 import com.riwi.frol.domain.repositories.CompanyRepository;
 import com.riwi.frol.infrastructure.abstract_services.ICompanyService;
@@ -48,7 +48,7 @@ public class CompanyService implements ICompanyService {
     public Page<CompanyResponse> getAll(int page, int size) {
         if (page < 0) page = 0;
         
-        Pageable pageable = PageRequest.of(page, size);
+        PageRequest pageable = PageRequest.of(page, size);
 
         return this.companyRepository.findAll(pageable)
             .map(this::entityToResponse);
@@ -61,23 +61,22 @@ public class CompanyService implements ICompanyService {
     private CompanyResponse entityToResponse(Company company){
         CompanyResponse companyResponse = new CompanyResponse();
         BeanUtils.copyProperties(company, companyResponse);
-        companyResponse.setCitas(company.getCitas()
+        /* companyResponse.setCitas(company.getCitas()
         .stream()
-        .map(this::citaToResponse) // error porq falta citas y esta tipo string
-        .collect(Collectors.toList()));
+        .map(this::citaToResponse)
+        .collect(Collectors.toList())); */
         return companyResponse;
     }
 
     private Company requestToCompany(CompanyRequest CR, Company company){
         BeanUtils.copyProperties(CR, company);
-        company.setCitas(new ArrayList<>());
+        /* company.setCitas(new ArrayList<>()); */
         return company;
     }
     
-    private CitasToCompanyResponse citaToResponse(Company company){
-        CitasToCompanyResponse response = new CitasToCompanyResponse();
-        BeanUtils.copyProperties(company, response);
+    /* private CitasBasicResponse citaToResponse(Cita entity){
+        CitasBasicResponse response = new CitasBasicResponse();
+        BeanUtils.copyProperties(entity, response);
         return response;
-    }
+    } */
 }
- */

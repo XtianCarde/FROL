@@ -13,5 +13,5 @@ public class CitasBasicResponse {
     private Long id;
     private String nombre;
     private String servicio;
-    private String descripcion; // aca van los atributos de la cita
+    private String descripcion; 
 }
