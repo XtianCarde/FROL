@@ -29,7 +29,9 @@ public class ClienteService implements IClienteService{
 
     @Override
     public ClienteResponse create(ClienteRequest request) {
-        return null;
+        Cliente objCliente = this.clienteRequest(request,new Cliente());
+
+        return this.entityToCliente(this.objClienteRepository.save(objCliente));
     }
 
     @Override
@@ -70,7 +72,7 @@ public class ClienteService implements IClienteService{
 
     private Cliente clienteRequest (ClienteRequest request, Cliente cliente){
         cliente.setName(request.getName());
-        cliente.setPassword(request.getPassworl());
+        cliente.setPassword(request.getPassword());
         cliente.setEmail(request.getEmail());
         // cliente.setPhone(request.getPhone());
         // cliente.setAge(request.getAge());

@@ -22,7 +22,7 @@ public class ClienteRequest {
     private String name;
     @Size(min = 0,max = 16, message = "La contraseña supera la cantidad de caracteres permitidos")
     @NotBlank(message = "La contraseña del cliente debe ser requerido")
-    private String passworl;
+    private String password;
     @Email
     private String email;
     // @Positive
