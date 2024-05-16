@@ -32,4 +32,17 @@ public class CitaController {
             @RequestBody CitasRequest request){
         return  ResponseEntity.ok(this.objCitaService.create(request));
     }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        this.objCitaService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<CitasResponse> update(
+            @Validated @RequestBody CitasRequest request,
+            @PathVariable Long id) {
+        return ResponseEntity.ok(this.objCitaService.update(id,request));
+    }
 }

@@ -25,9 +25,9 @@ public class ClienteRequest {
     private String password;
     @Email
     private String email;
-    // @Positive
-    // @NotBlank(message = "La edad del cliente debe ser requerido")
-    // private int age;
-    // @NotBlank(message = "El numero del cliente debe ser requerido")
-    // private String phone;
+    @Positive
+    @NotBlank(message = "La edad del cliente debe ser requerido")
+    private int age;
+    @NotBlank(message = "El numero del cliente debe ser requerido")
+    private String phone;
 }

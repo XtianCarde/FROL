@@ -23,7 +23,7 @@ public class Cliente {
     @EqualsAndHashCode.Exclude // @121312312
     @OneToMany(
             fetch = FetchType.EAGER,
-            mappedBy = "id_cliente",
+            mappedBy = "cliente",
             cascade = CascadeType.ALL,
             orphanRemoval = false
     )

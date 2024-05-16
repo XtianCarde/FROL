@@ -14,6 +14,6 @@ public class ClienteResponse {
     private String name;
     private String password;
     private String email;
-    // private int age;
-    // private int phone; 
+    private int age;
+    private int phone;
 }

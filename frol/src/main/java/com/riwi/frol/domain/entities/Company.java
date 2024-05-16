@@ -27,7 +27,7 @@ public class Company {
     @EqualsAndHashCode.Exclude // @121312312
     @OneToMany(
             fetch = FetchType.EAGER,
-            mappedBy = "id_empresa",
+            mappedBy = "company",
             cascade = CascadeType.ALL,
             orphanRemoval = false
     )

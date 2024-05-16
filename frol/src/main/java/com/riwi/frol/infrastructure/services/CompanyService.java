@@ -2,12 +2,13 @@ package com.riwi.frol.infrastructure.services;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
+
+import com.riwi.frol.Util.exceptions.BadRequestException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import com.riwi.frol.Util.exceptions.IdNotFoundException;
 import com.riwi.frol.api.dto.request.CompanyRequest;
 import com.riwi.frol.api.dto.response.CitasBasicResponse;
 import com.riwi.frol.api.dto.response.CompanyResponse;
@@ -55,7 +56,7 @@ public class CompanyService implements ICompanyService {
     }
 
     private Company find(Long id){
-        return this.companyRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Company"));
+        return this.companyRepository.findById(id).orElseThrow(() -> new BadRequestException("no se encontro la compania con el id suministrado"));
     }
 
     private CompanyResponse entityToResponse(Company company){
