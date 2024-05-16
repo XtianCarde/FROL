@@ -1,19 +1,20 @@
 package com.riwi.frol.api.dto.response;
 
+import com.riwi.frol.Util.enums.StateCitas;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class ClienteResponse {
+public class CitasBasicResponse {
     private Long id;
-    private String name;
-    private String password;
-    private String email;
-    private int age;
-    private int phone;
+    private LocalDateTime fecha;
+    private String nombre;
+    private StateCitas estado;
 }

@@ -6,14 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class ClienteResponse {
+public class CompanyToCitaResponse {
     private Long id;
-    private String name;
-    private String password;
-    private String email;
-    private int age;
-    private int phone;
+    private String direccion;
+    private String nombre;
+    private String servicio;
+    private String descripcion;
+    private String nit;
 }
