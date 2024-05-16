@@ -21,7 +21,7 @@ public class ClienteService implements IClienteService{
 
     @Override
     public void delete(Long id) {
-        Cliente objCliente = this.find(String.valueOf(id));
+        Cliente objCliente = this.find((id));
 
         this.objClienteRepository.delete(objCliente);
 
@@ -34,7 +34,7 @@ public class ClienteService implements IClienteService{
 
     @Override
     public ClienteResponse update(Long id, ClienteRequest request) {
-        Cliente objCliente = this.find(String.valueOf(id));
+        Cliente objCliente = this.find((id));
 
         Cliente objClienteUpdate = this.clienteRequest(request, objCliente);
 
@@ -53,7 +53,7 @@ public class ClienteService implements IClienteService{
     
     @Override
     public ClienteResponse getById(Long id) {
-        return this.entityToCliente(this.find(String.valueOf(id)));
+        return this.entityToCliente(this.find((id)));
     }
     
     private ClienteResponse entityToCliente(Cliente entity){
@@ -64,7 +64,7 @@ public class ClienteService implements IClienteService{
         return response;
     }
 
-    private Cliente find(String id){
+    private Cliente find(Long id){
         return this.objClienteRepository.findById(id).orElseThrow();
     }
 
