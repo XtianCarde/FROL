@@ -22,11 +22,13 @@ import com.riwi.frol.api.dto.response.ClienteResponse;
 import com.riwi.frol.infrastructure.abstract_services.IClienteService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("/frol")
+@RequestMapping("/cliente")
 @AllArgsConstructor
+@Tag(name = "Cliente")
 public class ClienteController {
     @Autowired
     private final IClienteService objClienteService;
