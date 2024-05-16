@@ -26,7 +26,7 @@ public class CitasRequest {
 
     @FutureOrPresent(message = "La fecha y hora debe ser futura")
     @NotNull(message = "La fecha y hora de la cita es requeridas")
-    private LocalDateTime feha;
+    private LocalDateTime fecha;
     @NotNull(message = "El precio es requerido")
     @DecimalMin(
             value = "0.01",
@@ -35,10 +35,11 @@ public class CitasRequest {
     private BigDecimal valor;
     @NotNull(message = "El id de la Empresa es obligatorio")
     @Min(value = 1, message = "El id debe ser mayor a cero ")
-    private Long id_empresa;
+    private Long empresaId;
     @NotNull(message = "El id del cliente es obligatorio")
     @Min(value = 1, message = "El id debe ser mayor a cero ")
-    private Long id_cliente;
-    @NotNull( message = "El rol es requerido")
+    private Long clienteId;
+    @NotNull( message = "El Estado es requerido")
     private StateCitas estado;
+
 }

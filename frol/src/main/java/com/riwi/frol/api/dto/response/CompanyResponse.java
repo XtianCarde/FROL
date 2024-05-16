@@ -1,7 +1,6 @@
 package com.riwi.frol.api.dto.response;
 
 import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,5 +17,6 @@ public class CompanyResponse {
     private String servicio;
     private String descripcion;
     private String nit;
-    private List<String> citas; //si
+
+    private List<CitasBasicResponse> citas;
 }

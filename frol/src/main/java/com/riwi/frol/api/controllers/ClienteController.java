@@ -25,22 +25,22 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("/frol")
+@RequestMapping("/cliente")
 @AllArgsConstructor
 public class ClienteController {
     @Autowired
     private final IClienteService objClienteService;
     
-
+/*
     @Operation(summary = "Lista todas los clientes con paginación",
     description = "Debes enviar la pagina y el tamaño de la pagina para recibir todas la vacantes correspondientes")
     @GetMapping
-    public ResponseEntity<Page<ClienteResponse>> get (
+    public ResponseEntity<Page<ClienteResponse>>     (
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "10") int size) {
             
-            return ResponseEntity.ok(this.objClienteService.getAll(page, size));
-    }
+            return ResponseEntity.ok(this.objClienteService.getAll(page -1, size));
+    }*/
 
     @GetMapping("/{id}")
     public ResponseEntity<ClienteResponse> getById(@PathVariable String id){
@@ -49,7 +49,9 @@ public class ClienteController {
 
     @Operation(summary = "Crea una vacante y la asocia una compañia", description = "Crea un cliente y la asocia una compañia")
     @PostMapping
-    public ResponseEntity<ClienteResponse> insert (@Validated @RequestBody ClienteRequest request){
+    public ResponseEntity<ClienteResponse> insert (
+        @Validated 
+        @RequestBody ClienteRequest request){
         return ResponseEntity.ok(this.objClienteService.create(request));
     }
 

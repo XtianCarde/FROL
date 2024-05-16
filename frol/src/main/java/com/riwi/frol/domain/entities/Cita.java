@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Citas {
+public class Cita {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,11 +30,11 @@ public class Citas {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa" , referencedColumnName = "id")
-    private Company id_empresa;
+    private Company company;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente" , referencedColumnName = "id")
-    private Cliente id_cliente;
+    private Cliente cliente;
 
 
 }

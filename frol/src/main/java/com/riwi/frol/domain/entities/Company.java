@@ -31,5 +31,5 @@ public class Company {
             cascade = CascadeType.ALL,
             orphanRemoval = false
     )
-    private List<Citas> citas; // Es una lista de citas no de String
+    private List<Cita> citas; // Es una lista de citas no de String
 }

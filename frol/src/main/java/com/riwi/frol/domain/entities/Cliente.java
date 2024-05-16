@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Cliente {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String password;
@@ -27,5 +27,5 @@ public class Cliente {
             cascade = CascadeType.ALL,
             orphanRemoval = false
     )
-    private List<Citas> citas;
+    private List<Cita> citas;
 }

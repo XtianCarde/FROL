@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 public class ClienteResponse {
     private Long id;
     private String name;
-    private String passworl;
+    private String password;
     private String email;
     private int age;
-    private int phone; 
+    private int phone;
 }

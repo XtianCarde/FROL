@@ -21,7 +21,7 @@ public class ClienteService implements IClienteService{
 
     @Override
     public void delete(Long id) {
-        Cliente objCliente = this.find((id));
+        Cliente objCliente = this.find(Long.valueOf(id));
 
         this.objClienteRepository.delete(objCliente);
 
@@ -29,12 +29,14 @@ public class ClienteService implements IClienteService{
 
     @Override
     public ClienteResponse create(ClienteRequest request) {
-        return null;
+        Cliente objCliente = this.clienteRequest(request,new Cliente());
+
+        return this.entityToCliente(this.objClienteRepository.save(objCliente));
     }
 
     @Override
     public ClienteResponse update(Long id, ClienteRequest request) {
-        Cliente objCliente = this.find((id));
+        Cliente objCliente = this.find(Long.valueOf(id));
 
         Cliente objClienteUpdate = this.clienteRequest(request, objCliente);
 
@@ -53,7 +55,7 @@ public class ClienteService implements IClienteService{
     
     @Override
     public ClienteResponse getById(Long id) {
-        return this.entityToCliente(this.find((id)));
+        return this.entityToCliente(this.find(Long.valueOf(id)));
     }
     
     private ClienteResponse entityToCliente(Cliente entity){
@@ -70,9 +72,10 @@ public class ClienteService implements IClienteService{
 
     private Cliente clienteRequest (ClienteRequest request, Cliente cliente){
         cliente.setName(request.getName());
-        cliente.setPassword(request.getPassworl());
-        cliente.setPhone(request.getPhone());
-        cliente.setAge(request.getAge());
+        cliente.setPassword(request.getPassword());
+        cliente.setEmail(request.getEmail());
+        // cliente.setPhone(request.getPhone());
+        // cliente.setAge(request.getAge());
         return cliente;
     }
 
