@@ -19,7 +19,7 @@ public class CitasResponse {
     private Long id;
     private LocalDateTime feha;
     private BigDecimal valor;
-    private CompanyToCitaResponse id_empresa;
-    private ClienteResponse id_cliente;
+    private CompanyToCitaResponse company;
+    private ClienteResponse cliente;
     private StateCitas estado;
 }

@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.riwi.frol.Util.exceptions.BadRequestException;
 import com.riwi.frol.api.dto.errors.BaseErrorResponse;
 import com.riwi.frol.api.dto.errors.ErrorsResponse;
-import org.apache.coyote.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
