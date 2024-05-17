@@ -3,6 +3,7 @@ package com.riwi.frol.api.controllers;
 import com.riwi.frol.api.dto.request.CitasRequest;
 import com.riwi.frol.api.dto.response.CitasResponse;
 import com.riwi.frol.infrastructure.abstract_services.ICitaService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,13 +19,18 @@ public class CitaController {
     @Autowired
     private final ICitaService objCitaService;
 
+    @Operation(
+            summary = "Lista todas las citas, con su respectiva compañia y cliente",
+            description = "Debes enviar la pagina y el tamaño de la pagina para recibir todas las vacantes"
+    )
     @GetMapping
-    public ResponseEntity<Page<CitasResponse>> get(
+    public ResponseEntity<Page<CitasResponse>> getAll(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "2") int size
     ){
         return  ResponseEntity.ok(this.objCitaService.getAll(page -1,size));
     }
+
 
     @PostMapping
     public ResponseEntity<CitasResponse> insert(
