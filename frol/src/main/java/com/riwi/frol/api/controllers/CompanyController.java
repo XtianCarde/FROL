@@ -3,6 +3,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.ErrorResponse;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,14 +28,21 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/company")
 @AllArgsConstructor
 @Tag(name = "Compañia")
+@CrossOrigin("*")
 public class CompanyController {
     private final ICompanyService objICompanyService;
 
-    @Operation(summary = "Lista las compañias por paginación", description = "Muestra la lista de vacantes paginadas en size 10")
+    @Operation(summary = "Lista las compañias por paginación", description = "Muestra la lista de compañias paginadas en size 10")
     @GetMapping
     public ResponseEntity<Page<CompanyResponse>> get(@RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size) {
         return ResponseEntity.ok(this.objICompanyService.getAll(page - 1, size));
+    }
+
+    @Operation(summary = "Lista las compañias por id", description = "Muestra la compañia encontrada por id")
+    @GetMapping("/{id}")
+    public ResponseEntity<CompanyResponse> get(@PathVariable Long id){
+        return ResponseEntity.ok(this.objICompanyService.getById(id));
     }
 
     @Operation(summary = "Insertar compañias", description = "Agrega nuevas compañias")

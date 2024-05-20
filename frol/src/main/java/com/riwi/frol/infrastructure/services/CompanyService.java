@@ -44,17 +44,21 @@ public class CompanyService implements ICompanyService {
         Company companyUpdate = this.requestToCompany(rq,company);
         return this.entityToResponse(this.companyRepository.save(companyUpdate));
     }
-
+    
     @Override
     public Page<CompanyResponse> getAll(int page, int size) {
         if (page < 0) page = 0;
         
         PageRequest pageable = PageRequest.of(page, size);
-
+        
         return this.companyRepository.findAll(pageable)
-            .map(this::entityToResponse);
+        .map(this::entityToResponse);
     }
-
+    
+    @Override
+    public CompanyResponse getById(Long id) {
+        return this.entityToResponse(this.find(id));
+    }
     private Company find(Long id){
         return this.companyRepository.findById(id).orElseThrow(() -> new BadRequestException("no se encontro la compania con el id suministrado"));
     }
@@ -80,4 +84,5 @@ public class CompanyService implements ICompanyService {
         BeanUtils.copyProperties(entity, response);
         return response;
     }
+
 }

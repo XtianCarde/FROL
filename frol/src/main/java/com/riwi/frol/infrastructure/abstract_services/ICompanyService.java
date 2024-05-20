@@ -4,5 +4,5 @@ import com.riwi.frol.api.dto.request.CompanyRequest;
 import com.riwi.frol.api.dto.response.CompanyResponse;
 
 public interface ICompanyService extends CrudService<CompanyRequest, CompanyResponse,Long> {
-    
+    CompanyResponse getById(Long id);
 }

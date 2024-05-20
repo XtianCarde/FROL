@@ -17,6 +17,7 @@ public class CompanyResponse {
     private String servicio;
     private String descripcion;
     private String nit;
+    private String urlImg;
 
     private List<CitasBasicResponse> citas;
 }

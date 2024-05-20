@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/cita")
 @AllArgsConstructor
+@CrossOrigin("*")
 public class CitaController {
 
     @Autowired
