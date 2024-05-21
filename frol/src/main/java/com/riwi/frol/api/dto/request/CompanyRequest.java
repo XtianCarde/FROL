@@ -13,17 +13,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CompanyRequest {
-    private String direccion;
+    private String address;
     @NotBlank(message = "El nombre de la compañía debe ser requerido")
     @Size(min = 2, max = 100,message = "El nombre de la compañía debe contener entre 2 y 100 carácteres")
-    private String nombre;
+    private String name;
     @NotBlank(message = "El servicio de la compañía debe ser requerido")
-    private String servicio;
+    private String service;
     @NotBlank(message = "La descripción de la compañía debe ser requerido")
     @Size(min = 15, max = 100,message = "El nombre de la compañía debe contener entre 15 y 100 carácteres")
-    private String descripcion;
+    private String description;
     @NotBlank(message = "El nit de la compañía debe ser requerido")
     private String nit;
+    @NotBlank(message = "Este es el url de img")
     private String urlImg;
     @NotBlank(message = "El email de la compañía debe ser requerido")
     private String email;
