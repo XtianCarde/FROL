@@ -66,6 +66,7 @@ public class ClienteService implements IClienteService{
         return response;
     }
 
+
     private Cliente find(Long id){
         return this.objClienteRepository.findById(id).orElseThrow();
     }
