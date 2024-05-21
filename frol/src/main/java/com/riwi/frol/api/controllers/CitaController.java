@@ -4,11 +4,15 @@ import com.riwi.frol.api.dto.request.CitasRequest;
 import com.riwi.frol.api.dto.response.CitasResponse;
 import com.riwi.frol.infrastructure.abstract_services.ICitaService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -32,7 +36,7 @@ public class CitaController {
         return  ResponseEntity.ok(this.objCitaService.getAll(page -1,size));
     }
 
-
+    @Operation(summary = "Insertar Citas", description = "Agrega nuevas Citas")
     @PostMapping
     public ResponseEntity<CitasResponse> insert(
             @Validated
@@ -40,12 +44,29 @@ public class CitaController {
         return  ResponseEntity.ok(this.objCitaService.create(request));
     }
 
+    
+    @ApiResponse(
+        responseCode = "400",
+        description = "Cuando el id no es válido",
+        content = {
+            @Content(
+                mediaType = "application/json",
+                schema = @Schema(implementation = ErrorResponse.class)
+            )
+        }
+    )
+    @Operation(summary = "Eliminar", description = "Elimina Citas por id")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         this.objCitaService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
+
+    @ApiResponse(responseCode = "400", description = "Cuando el id no es válido", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
+    })
+    @Operation(summary = "Actualizar", description = "Actualiza Citas por id")
     @PutMapping(path = "/{id}")
     public ResponseEntity<CitasResponse> update(
             @Validated @RequestBody CitasRequest request,
